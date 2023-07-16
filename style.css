@@ -4,10 +4,6 @@
     font-size: 30pt;
     font-family: serif;
 }
-.right{
-    float:right;
-    padding-right: 50px;
-}
 .navigation{
     display:grid;
     grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
@@ -46,7 +42,6 @@ li{
 .search{
     height:40px;
     background-color: transparent;
-    color:black;
     border-radius: 5%;
 }
 ::placeholder{
@@ -54,13 +49,15 @@ li{
 }
 .nav-pills{
     padding-top:25px;
+    justify-content: right;
 }
 .background{
     position:relative;
-    bottom:190px;
+    bottom:185px;
     z-index: -1;
-    height:50rem;
+    height:100vh;
     width: 100%;
+    min-width: calc(100% + 1px);
    
 }
 .first{
@@ -71,7 +68,7 @@ li{
     font-size: 1.5em;
 }
 .feature-icon>img{
-    height:275px;
+    height:245px;
     gap:20px;
 }
 body{
@@ -79,7 +76,7 @@ body{
 }
 .news{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.75fr 0.75fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
     padding-top: 15px;
@@ -114,6 +111,15 @@ body{
     flex-direction: column;
     background-color: white;
 }
+.news_img{
+    min-width: calc(50% + 1px);
+    min-height: calc(50% + 1px);
+    height:5.5em;
+}
+.news_img_sp{
+    height:20em;
+    width: 100%;
+}
 .new{
     padding-top: 50px;
     padding-bottom: 50px;
@@ -143,29 +149,75 @@ body{
     display: flex;
     justify-content: center;
 }
-@media(min-width: 900px){
-    .dropdown{
+.feature{
+    margin-right: 0px;
+}
+.feature_img{
+    height:6em;
+    width:100%;
+}
+.search{
+    width:20%;
+}
+@media(min-width: 1201px){
+    .drop{
+        display: none;
+    }
+    .bar{
         display: none;
     }
 }
 
-@media(max-width: 900px){
+@media(max-width:1200px)and(min-width:971px){
+    .two{
+        height: 319px;
+    }
+}
+
+@media(max-width: 1200px){
+    .container-fluid{
+        background-color: #f4f4f4;
+    }
+    .first>.container{
+        display: none;
+    }
     .background{
-        position: relative;
-        bottom: 300px;
+        bottom: 0;
+        width:100vw;
+        height:100vh;
+    }
+    .logo{
+        height:5em;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+    .left{
+        font-size: 1.25em;
+        padding-top: 10px;
+    }
+    .search{
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 1em;
     }
     .dropdown>.btn{
         background-color: darkblue;
         color: white;
-        font-size: 16px;
+        font-size: 1em;
         border: none;
         cursor: pointer;
+        padding-top: 20px;
       }
-      
+     .drop{
+        display: flex;
+        justify-content: right;
+        background-color: darkblue;
+        width:100vw;
+     } 
       .dropdown {
         position: relative;
         float: right;
-        padding-right: 20px;
+        padding-right: 40px;
       }
       
       .dropdown-content {
@@ -181,8 +233,11 @@ body{
       .dropdown>.btn:focus + .dropdown-content {
           display:block;
       }
+    .navbar{
+        padding:0;
+    }
       
-    .first>.navi{
+    .first .navi{
         display: none;
     }
     .lead{
@@ -190,19 +245,13 @@ body{
     }
     .news{
         display: grid;
-        grid-template-rows: 325px 325px;
+        grid-template-rows: 0.5fr 0.5fr;
         grid-template-columns: 1fr 1fr 1fr;
         gap:20px;
     }
+    
     .six{
         display: none;
-    }
-    .two{
-        padding-right: 20px;
-    }
-    .news_img_sp{
-        width:500px;
-        height:325px;
     }
     .news_text{
         font-size: 12pt;
@@ -217,8 +266,72 @@ body{
         padding-left: 10px;
     }
     .news_img{
-        width:245px;
         height:200px;
         object-fit: fill;
+    }
+    ::placeholder{
+        color: white;
+    }
+}
+
+@media(max-width:760px){
+    .logo{
+        height:4em;
+    }
+    .left{
+        font-size: 1em;
+    }
+    .dropdown{
+        padding-right: 10px;
+    }
+    
+}
+
+@media(max-width:920px){
+    .background{
+        height:50em;
+    }
+}
+
+
+@media(max-width:600px){
+    .background{
+        height:35em;
+    }
+    .container-fluid{
+        padding-left: 0;
+    }
+    .logo{
+        height:3.5em;
+        padding-left: 0;
+    }
+    .left{
+        font-size: 0.75em;
+    }
+    .search{
+        margin-top: 15px;
+        margin-bottom: 5px;
+        height:20%;
+        font-size: 0.75em;
+    }
+    .dropdown>.btn{
+        font-size: 0.75em;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 20%;
+      }
+}
+@media (max-width:970px){
+    .news_img{
+        display:none;
+    }
+    .news{
+        display:flex;
+        flex-direction: column;
+    }
+}
+@media (max-width:300px){
+    .background{
+        height:25em;
     }
 }
